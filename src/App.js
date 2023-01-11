@@ -1,85 +1,211 @@
-import React from 'react';
-import './App.css';
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
+/* eslint-disable no-unused-vars */
+import "./App.css";
+import React from "react";
+import ModalCreate from "./component/ModalCreate";
+import Message from "./component/Message";
 
 class App extends React.Component {
   constructor() {
     super();
+    this.state = {
+      jumlahUang: 0,
+      sisaUang: 0,
+      uangPemasukan: 0,
+      uangPengeluaran: 0,
+      transaksiUangMasuk: 0,
+      transaksiUangKeluar: 0,
+      peringatan: [
+        // {
+        //   deskripsi: "Menerima Gaji",
+        //   tanggal: "1 July 2023",
+        //   nominal: 2000000,
+        //   kategori: "IN",
+        // },
+        // {
+        //   deskripsi: "Makan Sayur Asem",
+        //   tanggal: "9 July 2023",
+        //   nominal: 15000,
+        //   kategori: "OUT",
+        // },
+      ],
+    };
+
+    this.createItem = this.createItem.bind(this);
+    this.fnHitung = this.fnHitung.bind(this);
+  }
+
+  createItem(object) {
+    let newData = [...this.state.peringatan, object];
+    let dataUangIN = newData.filter((item) => item.kategori === "IN");
+    let nominalUang = dataUangIN.map((item) => item.nominal);
+    let jumlahUangIN = nominalUang.reduce((total, num) => total + num, 0);
+
+    let dataUangOUT = newData.filter((item) => item.kategori === "OUT");
+    let nominalUangOUT = dataUangOUT.map((item) => item.nominal);
+    let jumlahUangOUT = nominalUangOUT.reduce((total, num) => total + num, 0);
+    console.log(jumlahUangOUT);
+
+    this.setState({
+      uangPemasukan: jumlahUangIN,
+      transaksiUangMasuk: nominalUang.length,
+      uangPengeluaran: jumlahUangOUT,
+      transaksiUangKeluar: nominalUangOUT.length,
+      jumlahUang: jumlahUangIN - jumlahUangOUT,
+      sisaUang: ((jumlahUangIN - jumlahUangOUT) / jumlahUangIN) * 100,
+      peringatan: newData,
+    });
+  }
+
+  // Menghitung pemasukan uang & Berapa kali transaksi
+  // Menghitung sisa uang
+
+  fnHitung() {
+    let dataUangIN = this.state.peringatan.filter(
+      (item) => item.kategori === "IN"
+    );
+    let nominalUang = dataUangIN.map((item) => item.nominal);
+    let jumlahUangIN = nominalUang.reduce((total, num) => total + num);
+
+    let dataUangOUT = this.state.peringatan.filter(
+      (item) => item.kategori === "OUT"
+    );
+    let nominalUangOUT = dataUangOUT.map((item) => item.nominal);
+    let jumlahUangOUT = nominalUangOUT.reduce((total, num) => total + num);
+    console.log(jumlahUangOUT);
+
+    this.setState({
+      uangPemasukan: jumlahUangIN,
+      transaksiUangMasuk: nominalUang.length,
+      uangPengeluaran: jumlahUangOUT,
+      transaksiUangKeluar: nominalUangOUT.length,
+      jumlahUang: jumlahUangIN - jumlahUangOUT,
+      sisaUang: ((jumlahUangIN - jumlahUangOUT) / jumlahUangIN) * 100,
+    });
+  }
+
+  componentDidMount() {
+    if (this.state.peringatan.length < 1) {
+    } else {
+      this.fnHitung();
+    }
   }
 
   render() {
     return (
       <>
-        <Container>
-          {/* TITLE APPS */}
-          <Row className="py-5">
-            <Col md={12}>
-              <div className="text-center">
-                <h1 className="">Your Money</h1>
-                <hr className="w-50 mx-auto" />
-                <h2 className="fw-bold">Rp 1.500.000,-</h2>
-                <p>Sisa uang kamu tersisa 75% lagi</p>
+        <div className="container py-5">
+          <div className="row">
+            <div className="col-12 text-center">
+              <h1 className="fw-bold">NOTE MONEY</h1>
+              <hr className="w-75 mx-auto" />
+              <h2 className="fw-bold">Rp {this.state.jumlahUang},-</h2>
+              <span className="title-sm">
+                Sisa uang kamu tersisa {this.state.sisaUang}% lagi
+              </span>
+            </div>
+          </div>
+
+          <div className="row mt-4">
+            <div className="col-6 d-flex flex-column">
+              <div className="card-wrapper p-4">
+                <div className="icon-app mb-1">
+                  <i className="bi bi-wallet2"></i>
+                </div>
+                <span className="title-md">Pemasukan</span>
+                <h3>Rp {this.state.uangPemasukan},-</h3>
+                <div>
+                  <span className="title text-purple">
+                    {this.state.transaksiUangMasuk}
+                  </span>
+                  <span className="title"> Transaksi</span>
+                </div>
               </div>
-            </Col>
-          </Row>
+            </div>
 
-          {/* CARD 1 */}
-          <Row>
-            <Col md={6}>
-              <Card>
-                <Card.Body>
-                  <Card.Title>
-                    <i class="bi bi-wallet2"></i>
-                  </Card.Title>
-                  <Card.Text>
-                    <p>Pemasukkan</p>
-                  </Card.Text>
-                  <h3>Rp 3000.000,-</h3>
-                  <p>
-                    <span>20</span> Transaksi
-                  </p>
-                </Card.Body>
-              </Card>
-            </Col>
-
-            {/* CARD 2 */}
-            <Col md={6}>
-              <Card>
-                <Card.Body>
-                  <Card.Title>
-                    <i class="bi bi-cash"></i>
-                  </Card.Title>
-                  <Card.Text>
-                    <p>Pengeluaran</p>
-                  </Card.Text>
-                  <h3>Rp 1200.000,-</h3>
-                  <p>
-                    <span>10</span> Transaksi
-                  </p>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-
-          {/* TRANSACTION PROCESSS */}
-          <Row>
-            <Col lg={8}>
-              <div className="mt-4">
-                <h4>Ringkasan Transaksi</h4>
+            <div className="col-6 d-flex flex-column">
+              <div className="card-wrapper p-4">
+                <div className="icon-app mb-1">
+                  <i className="bi bi-cash-stack"></i>
+                </div>
+                <span className="title-md">Pengeluaran</span>
+                <h3>Rp {this.state.uangPengeluaran},-</h3>
+                <div>
+                  <span className="title text-purple">
+                    {this.state.transaksiUangKeluar}
+                  </span>
+                  <span className="title"> Transaksi</span>
+                </div>
               </div>
-            </Col>
+            </div>
+          </div>
 
-            <Col lg={4}>
-              <div className="mt-4">
-                <button>Pemasukan +</button>
-                <button className="ms-2">Pengeluaran -</button>
+          <div className="row mt-4">
+            <div className="col-12 d-flex justify-content-between align-items-center">
+              <h4>Ringkasan Transaksi</h4>
+              <div className="wrap-btn d-flex">
+                <ModalCreate
+                  action={this.createItem}
+                  kategori="IN"
+                  variant="button btn-purple me-2 px-3 py-2"
+                  text="Pemasukan"
+                  icon="bi bi-plus-circle-fill"
+                  modalHeading="Tambahkan Pemasukan"
+                />
+                <ModalCreate
+                  action={this.createItem}
+                  kategori="OUT"
+                  variant="button btn-pink me-2 px-3 py-2"
+                  text="Pengeluaran"
+                  icon="bi bi-dash-circle-fill"
+                  modalHeading="Tambahkan Pengeluaran"
+                />
               </div>
-            </Col>
-          </Row>
-        </Container>
+            </div>
+          </div>
+
+          <div className="row mt-4">
+            {/* Kondisi jika data kosong akan muncul pesan peringatan */}
+            {this.state.peringatan.length < 1 && <Message />}
+            {/* Memanggil transaksi masuk dan keluar */}
+            {this.state.peringatan.map((per, index) => {
+              return (
+                <div
+                  key={index}
+                  className="col-12 d-flex justify-content-between mb-4"
+                >
+                  <div className="d-flex align-items-center">
+                    <div
+                      className={
+                        per.kategori === "IN" ? "icon-app-in" : "icon-app-out"
+                      }
+                    >
+                      <i
+                        className={
+                          per.kategori === "IN"
+                            ? "bi bi-wallet2"
+                            : "bi bi-bag-dash"
+                        }
+                      ></i>
+                    </div>
+
+                    <div className="transaction ms-3 d-flex flex-column">
+                      <h6>{per.deskripsi}</h6>
+                      <span className="title-sm">{per.tanggal}</span>
+                    </div>
+                  </div>
+
+                  <h5
+                    className={
+                      per.kategori === "IN" ? "text-money-in" : "text-money-out"
+                    }
+                  >
+                    Rp {per.nominal}
+                  </h5>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </>
     );
   }
