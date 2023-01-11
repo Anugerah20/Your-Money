@@ -9,11 +9,10 @@ h1 {
   font-size: 40px;
   font-weight: 600;
   line-height: 60px;
-  background: linear-gradient(267.81deg, #3C3DBF 1.92%, #2998FF 106.64%);
+  background: #A31ACB;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  /* text-fill-color: transparent; */
 }
 
 h2 {
@@ -35,7 +34,7 @@ h4 {
   font-weight: 600 !important;
   font-size: 20px;
   line-height: 30px !important;
-  color: #3C3DBF;
+  color: #0081B4;
 }
 
 h5 {
@@ -53,7 +52,7 @@ h6 {
 }
 
 p.alert-p {
-  color: #FF3666;
+  color: #DC0000;
   font-weight: bold;
   text-align: center;
   margin-top: 2rem;
@@ -74,7 +73,7 @@ p.alert-p {
 }
 
 .text-purple {
-  color: #3C3DBF;
+  color: #0081B4;
   font-weight: 600;
 }
 
@@ -85,17 +84,17 @@ p.alert-p {
 }
 
 .btn-purple {
-  background: #3C3DBF;
+  background: #0081B4;
 }
 
 .btn-pink {
-  background: #FF3666;
+  background: #DC0000;
 }
 
 .card-wrapper {
   background: #FFFFFF;
   border: 1px solid #F4F4F4;
-  box-shadow: 0px 6px 30px rgba(206, 206, 206, 0.25);
+  box-shadow: 0px 8px 30px rgba(206, 206, 206, 0.25);
   border-radius: 14px;
 }
 
@@ -110,7 +109,7 @@ p.alert-p {
   height: 35px;
   background: #E4E5FF;
   border-radius: 6px;
-  color: #3C3DBF;
+  color: #0081B4;
 }
 
 .icon-app-out {
@@ -124,15 +123,15 @@ p.alert-p {
   height: 35px;
   background: #FFECF0;
   border-radius: 6px;
-  color: #FF3666;
+  color: #DC0000;
 }
 
 .text-money-in {
-  color: #3C3DBF;
+  color: #0081B4;
   font-weight: 600 !important;
 }
 
 .text-money-out {
-  color: #FF3666;
+  color: #DC0000;
   font-weight: 600 !important;
 }
