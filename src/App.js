@@ -95,7 +95,7 @@ class App extends React.Component {
       <>
         <div className="container py-5">
           <div className="row">
-            <div className="col-12 text-center">
+            <div className="col-md-12 col-sm-12 text-center">
               <h1 className="fw-bold">NOTE MONEY</h1>
               <hr className="w-75 mx-auto" />
               <h2 className="fw-bold">Rp {this.state.jumlahUang},-</h2>
@@ -106,7 +106,7 @@ class App extends React.Component {
           </div>
 
           <div className="row mt-4">
-            <div className="col-6 d-flex flex-column">
+            <div className="col-md-6 col-sm-12 d-flex flex-column">
               <div className="card-wrapper p-4">
                 <div className="icon-app mb-1">
                   <i className="bi bi-wallet2"></i>
@@ -122,7 +122,7 @@ class App extends React.Component {
               </div>
             </div>
 
-            <div className="col-6 d-flex flex-column">
+            <div className="col-md-6 col-sm-12 d-flex flex-column">
               <div className="card-wrapper p-4">
                 <div className="icon-app mb-1">
                   <i className="bi bi-cash-stack"></i>
@@ -140,9 +140,10 @@ class App extends React.Component {
           </div>
 
           <div className="row mt-4">
-            <div className="col-12 d-flex justify-content-between align-items-center">
+            <div className="col-md-12 col-sm-6 d-flex justify-content-between align-items-center">
               <h4>Ringkasan Transaksi</h4>
-              <div className="wrap-btn d-flex">
+            </div>
+              <div className="wrap-btn d-block">
                 <ModalCreate
                   action={this.createItem}
                   kategori="IN"
@@ -150,7 +151,7 @@ class App extends React.Component {
                   text="Pemasukan"
                   icon="bi bi-plus-circle-fill"
                   modalHeading="Tambahkan Pemasukan"
-                />
+                  />
                 <ModalCreate
                   action={this.createItem}
                   kategori="OUT"
@@ -158,9 +159,8 @@ class App extends React.Component {
                   text="Pengeluaran"
                   icon="bi bi-dash-circle-fill"
                   modalHeading="Tambahkan Pengeluaran"
-                />
+                  />
               </div>
-            </div>
           </div>
 
           <div className="row mt-4">
