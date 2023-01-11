@@ -4,3 +4,135 @@
 * {
   font-family: 'Poppins', sans-serif;
 }
+
+h1 {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 60px;
+  background: linear-gradient(267.81deg, #3C3DBF 1.92%, #2998FF 106.64%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* text-fill-color: transparent; */
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 48px;
+  color: #454545;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  line-height: 24px !important;
+  color: #454545;
+}
+
+h4 {
+  font-weight: 600 !important;
+  font-size: 20px;
+  line-height: 30px !important;
+  color: #3C3DBF;
+}
+
+h5 {
+  font-weight: 600 !important;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+
+h6 {
+  font-weight: 400 !important;
+  font-size: 14px;
+  line-height: 16px;
+  color: #454545;
+}
+
+p.alert-p {
+  color: #FF3666;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.title-sm {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px !important;
+  color: #A1A1A1;
+}
+
+.title-md {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 12px !important;
+  color: #A1A1A1;
+}
+
+.text-purple {
+  color: #3C3DBF;
+  font-weight: 600;
+}
+
+.button {
+  border-radius: 8px;
+  border: none;
+  color: #FFF;
+}
+
+.btn-purple {
+  background: #3C3DBF;
+}
+
+.btn-pink {
+  background: #FF3666;
+}
+
+.card-wrapper {
+  background: #FFFFFF;
+  border: 1px solid #F4F4F4;
+  box-shadow: 0px 6px 30px rgba(206, 206, 206, 0.25);
+  border-radius: 14px;
+}
+
+.icon-app-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  width: 35px;
+  height: 35px;
+  background: #E4E5FF;
+  border-radius: 6px;
+  color: #3C3DBF;
+}
+
+.icon-app-out {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  width: 35px;
+  height: 35px;
+  background: #FFECF0;
+  border-radius: 6px;
+  color: #FF3666;
+}
+
+.text-money-in {
+  color: #3C3DBF;
+  font-weight: 600 !important;
+}
+
+.text-money-out {
+  color: #FF3666;
+  font-weight: 600 !important;
+}
