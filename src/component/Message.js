@@ -5,7 +5,7 @@ class Message extends React.Component {
     super();
   }
   render() {
-    return <p className="alert-p">Maaf, Data masih kosong....</p>;
+    return <p className="alert-p">Sorry, Data you blank....</p>;
   }
 }
 
