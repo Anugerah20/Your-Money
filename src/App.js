@@ -16,7 +16,7 @@ class App extends React.Component {
       transaksiUangKeluar: 0,
       peringatan: [
         // {
-        //   deskripsi: "Menerima Gaji",
+        //   deskripsi: "Dapat Bonus",
         //   tanggal: "1 July 2023",
         //   nominal: 2000000,
         //   kategori: "IN",
@@ -100,7 +100,7 @@ class App extends React.Component {
               <hr className="w-75 mx-auto" />
               <h2 className="fw-bold">Rp {this.state.jumlahUang},-</h2>
               <span className="title-sm">
-                Sisa uang kamu tersisa {this.state.sisaUang}% lagi
+                Your money is left {this.state.sisaUang}% again
               </span>
             </div>
           </div>
@@ -111,29 +111,29 @@ class App extends React.Component {
                 <div className="icon-app mb-1">
                   <i className="bi bi-wallet2"></i>
                 </div>
-                <span className="title-md">Pemasukan</span>
+                <span className="title-md">Income</span>
                 <h3>Rp {this.state.uangPemasukan},-</h3>
                 <div>
                   <span className="title text-purple">
                     {this.state.transaksiUangMasuk}
                   </span>
-                  <span className="title"> Transaksi</span>
+                  <span className="title"> Transaction</span>
                 </div>
               </div>
             </div>
 
-            <div className="col-md-6 col-sm-12 d-flex flex-column">
+            <div className="col-md-6 col-sm-12 d-flex flex-column mt-lg-0 mt-sm-3">
               <div className="card-wrapper p-4">
                 <div className="icon-app mb-1">
                   <i className="bi bi-cash-stack"></i>
                 </div>
-                <span className="title-md">Pengeluaran</span>
+                <span className="title-md">Expenses</span>
                 <h3>Rp {this.state.uangPengeluaran},-</h3>
                 <div>
                   <span className="title text-purple">
                     {this.state.transaksiUangKeluar}
                   </span>
-                  <span className="title"> Transaksi</span>
+                  <span className="title"> Transaction</span>
                 </div>
               </div>
             </div>
@@ -141,26 +141,26 @@ class App extends React.Component {
 
           <div className="row mt-4">
             <div className="col-md-12 col-sm-6 d-flex justify-content-between align-items-center">
-              <h4>Ringkasan Transaksi</h4>
+              <h4>List Transaction</h4>
             </div>
-              <div className="wrap-btn d-block">
-                <ModalCreate
-                  action={this.createItem}
-                  kategori="IN"
-                  variant="button btn-purple me-2 px-3 py-2"
-                  text="Pemasukan"
-                  icon="bi bi-plus-circle-fill"
-                  modalHeading="Tambahkan Pemasukan"
-                  />
-                <ModalCreate
-                  action={this.createItem}
-                  kategori="OUT"
-                  variant="button btn-pink me-2 px-3 py-2"
-                  text="Pengeluaran"
-                  icon="bi bi-dash-circle-fill"
-                  modalHeading="Tambahkan Pengeluaran"
-                  />
-              </div>
+            <div className="wrap-btn d-block">
+              <ModalCreate
+                action={this.createItem}
+                kategori="IN"
+                variant="button btn-purple me-2 px-3 py-2"
+                text="Income"
+                icon="bi bi-plus-circle-fill"
+                modalHeading="Add Income"
+              />
+              <ModalCreate
+                action={this.createItem}
+                kategori="OUT"
+                variant="button btn-pink me-2 px-3 py-2"
+                text="Expenses"
+                icon="bi bi-dash-circle-fill"
+                modalHeading="Add Expenses"
+              />
+            </div>
           </div>
 
           <div className="row mt-4">
