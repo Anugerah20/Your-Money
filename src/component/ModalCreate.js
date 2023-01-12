@@ -71,11 +71,11 @@ class ModalCreate extends React.Component {
           </Modal.Header>
           <Modal.Body>
             <div className="mb-3">
-              <label className="form-label">Deskripsi</label>
+              <label className="form-label">Description</label>
               <input
                 type="text"
                 className="form-control"
-                placeholder="Masukkan deskripsi"
+                placeholder="Enter Description"
                 name="deskripsi"
                 value={this.state.deskripsi}
                 onChange={this.handleChange}
@@ -85,10 +85,10 @@ class ModalCreate extends React.Component {
             <div className="mb-3">
               <label className="form-label">Nominal</label>
               <input
-                type="number"
+                type="money"
                 min={1}
                 className="form-control"
-                placeholder="Masukkan nominal"
+                placeholder="Enter nominal"
                 name="nominal"
                 value={this.state.nominal}
                 onChange={this.handleChange}
@@ -96,7 +96,7 @@ class ModalCreate extends React.Component {
             </div>
 
             <div className="mb-3">
-              <label className="form-label">Tanggal</label>
+              <label className="form-label">Date</label>
               <input
                 type="date"
                 className="form-control"
@@ -119,7 +119,7 @@ class ModalCreate extends React.Component {
           </Modal.Body>
           <Modal.Footer>
             <button onClick={this.createItem} className={this.props.variant}>
-              Simpan
+              Save
             </button>
           </Modal.Footer>
         </Modal>
