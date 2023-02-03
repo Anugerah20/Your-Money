@@ -85,6 +85,7 @@ class App extends React.Component {
 
   componentDidMount() {
     if (this.state.peringatan.length < 1) {
+
     } else {
       this.fnHitung();
     }
@@ -95,9 +96,8 @@ class App extends React.Component {
       <>
         <div className="container py-5">
           <div className="row">
-            <div className="col-md-12 col-sm-12 text-center">
+            <div className="col-md-12 col-sm-12 text-center p-2" style={{background: '#f9f9f9'}}>
               <h1 className="fw-bold">NOTE MONEY</h1>
-              <hr className="w-75 mx-auto" />
               <h2 className="fw-bold">Rp {this.state.jumlahUang},-</h2>
               <span className="title-sm">
                 Your money is left {this.state.sisaUang}% again
